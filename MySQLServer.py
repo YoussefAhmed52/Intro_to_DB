@@ -12,7 +12,8 @@ def create_database():
     
     except Error as e:
         print(f"❌ Error while connecting to MySQL: {e}")
-    
+    except mysql.connector.Error:
+        print(f"❌ Error while connecting to MySQL: {e}")
     finally:
         # Properly close the connection
         if connection.is_connected():
