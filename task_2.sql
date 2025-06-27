@@ -4,6 +4,13 @@ CREATE TABLE Authors (
     author_id INT PRIMARY KEY,
     author_name VARCHAR(215)
 )
+CREATE TABLE Books (
+    book_id INT PRIMARY KEY, 
+    title VARCHAR(130), 
+    author_id FOREIGN KEY REFERENCES Authors , 
+    price DOUBLE, 
+    publication_date DATE
+    )
 CREATE TABLE Customers (
     customer_id INT PRIMARY KEY,
     customer_name VARCHAR(215),
@@ -23,3 +30,4 @@ CREATE TABLE Order_Details (
     FOREIGN KEY (book_id) REFERENCES Books(book_id),
     quantity DOUBLE 
 )
+
